@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE6EED922AC8C9AA00BFA6EC /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */; };
+		CE72C9DB2ACA1AFC00AA0CF6 /* PodcastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72C9DA2ACA1AFC00AA0CF6 /* PodcastDetailView.swift */; };
+		CE72C9DE2ACAC29200AA0CF6 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */; };
+		CE72C9E12ACAC89B00AA0CF6 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE72C9E02ACAC89B00AA0CF6 /* FeedKit */; };
+		CE8F2D5C2AC8B9A70069190E /* Night_PodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */; };
+		CE8F2D5E2AC8B9A70069190E /* PodcastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D5D2AC8B9A70069190E /* PodcastsView.swift */; };
+		CE8F2D622AC8B9A80069190E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F2D612AC8B9A80069190E /* Assets.xcassets */; };
+		CE8F2D662AC8B9A80069190E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8F2D652AC8B9A80069190E /* Preview Assets.xcassets */; };
+		CE8F2D702AC8B9A80069190E /* Night_PodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D6F2AC8B9A80069190E /* Night_PodTests.swift */; };
+		CE8F2D7A2AC8B9A80069190E /* Night_PodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */; };
+		CE8F2D7C2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */; };
+		CEF46DFF2ACA006200EB1537 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = CEF46DFE2ACA006200EB1537 /* XMLCoder */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE8F2D6C2AC8B9A80069190E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE8F2D502AC8B9A70069190E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE8F2D572AC8B9A70069190E;
+			remoteInfo = "Night Pod";
+		};
+		CE8F2D762AC8B9A80069190E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE8F2D502AC8B9A70069190E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE8F2D572AC8B9A70069190E;
+			remoteInfo = "Night Pod";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		CE72C9DA2ACA1AFC00AA0CF6 /* PodcastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailView.swift; sourceTree = "<group>"; };
+		CE8F2D582AC8B9A70069190E /* Night Pod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Night Pod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodApp.swift; sourceTree = "<group>"; };
+		CE8F2D5D2AC8B9A70069190E /* PodcastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsView.swift; sourceTree = "<group>"; };
+		CE8F2D612AC8B9A80069190E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE8F2D632AC8B9A80069190E /* Night_Pod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Night_Pod.entitlements; sourceTree = "<group>"; };
+		CE8F2D652AC8B9A80069190E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CE8F2D6B2AC8B9A80069190E /* Night PodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Night PodTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8F2D6F2AC8B9A80069190E /* Night_PodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodTests.swift; sourceTree = "<group>"; };
+		CE8F2D752AC8B9A80069190E /* Night PodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Night PodUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITests.swift; sourceTree = "<group>"; };
+		CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE8F2D552AC8B9A70069190E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE72C9E12ACAC89B00AA0CF6 /* FeedKit in Frameworks */,
+				CE72C9DE2ACAC29200AA0CF6 /* CachedAsyncImage in Frameworks */,
+				CEF46DFF2ACA006200EB1537 /* XMLCoder in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8F2D682AC8B9A80069190E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8F2D722AC8B9A80069190E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE72C9E22ACB07D800AA0CF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE8F2D4F2AC8B9A70069190E = {
+			isa = PBXGroup;
+			children = (
+				CE8F2D5A2AC8B9A70069190E /* Night Pod */,
+				CE8F2D6E2AC8B9A80069190E /* Night PodTests */,
+				CE8F2D782AC8B9A80069190E /* Night PodUITests */,
+				CE8F2D592AC8B9A70069190E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE8F2D592AC8B9A70069190E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE8F2D582AC8B9A70069190E /* Night Pod.app */,
+				CE8F2D6B2AC8B9A80069190E /* Night PodTests.xctest */,
+				CE8F2D752AC8B9A80069190E /* Night PodUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE8F2D5A2AC8B9A70069190E /* Night Pod */ = {
+			isa = PBXGroup;
+			children = (
+				CE72C9E22ACB07D800AA0CF6 /* Models */,
+				CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */,
+				CE8F2D5D2AC8B9A70069190E /* PodcastsView.swift */,
+				CE72C9DA2ACA1AFC00AA0CF6 /* PodcastDetailView.swift */,
+				CE8F2D612AC8B9A80069190E /* Assets.xcassets */,
+				CE8F2D632AC8B9A80069190E /* Night_Pod.entitlements */,
+				CE8F2D642AC8B9A80069190E /* Preview Content */,
+			);
+			path = "Night Pod";
+			sourceTree = "<group>";
+		};
+		CE8F2D642AC8B9A80069190E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CE8F2D652AC8B9A80069190E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CE8F2D6E2AC8B9A80069190E /* Night PodTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE8F2D6F2AC8B9A80069190E /* Night_PodTests.swift */,
+			);
+			path = "Night PodTests";
+			sourceTree = "<group>";
+		};
+		CE8F2D782AC8B9A80069190E /* Night PodUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */,
+				CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */,
+			);
+			path = "Night PodUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE8F2D572AC8B9A70069190E /* Night Pod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE8F2D7F2AC8B9A80069190E /* Build configuration list for PBXNativeTarget "Night Pod" */;
+			buildPhases = (
+				CE8F2D542AC8B9A70069190E /* Sources */,
+				CE8F2D552AC8B9A70069190E /* Frameworks */,
+				CE8F2D562AC8B9A70069190E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Night Pod";
+			packageProductDependencies = (
+				CEF46DFE2ACA006200EB1537 /* XMLCoder */,
+				CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */,
+				CE72C9E02ACAC89B00AA0CF6 /* FeedKit */,
+			);
+			productName = "Night Pod";
+			productReference = CE8F2D582AC8B9A70069190E /* Night Pod.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE8F2D6A2AC8B9A80069190E /* Night PodTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE8F2D822AC8B9A80069190E /* Build configuration list for PBXNativeTarget "Night PodTests" */;
+			buildPhases = (
+				CE8F2D672AC8B9A80069190E /* Sources */,
+				CE8F2D682AC8B9A80069190E /* Frameworks */,
+				CE8F2D692AC8B9A80069190E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE8F2D6D2AC8B9A80069190E /* PBXTargetDependency */,
+			);
+			name = "Night PodTests";
+			productName = "Night PodTests";
+			productReference = CE8F2D6B2AC8B9A80069190E /* Night PodTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE8F2D742AC8B9A80069190E /* Night PodUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE8F2D852AC8B9A80069190E /* Build configuration list for PBXNativeTarget "Night PodUITests" */;
+			buildPhases = (
+				CE8F2D712AC8B9A80069190E /* Sources */,
+				CE8F2D722AC8B9A80069190E /* Frameworks */,
+				CE8F2D732AC8B9A80069190E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE8F2D772AC8B9A80069190E /* PBXTargetDependency */,
+			);
+			name = "Night PodUITests";
+			productName = "Night PodUITests";
+			productReference = CE8F2D752AC8B9A80069190E /* Night PodUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE8F2D502AC8B9A70069190E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					CE8F2D572AC8B9A70069190E = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					CE8F2D6A2AC8B9A80069190E = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CE8F2D572AC8B9A70069190E;
+					};
+					CE8F2D742AC8B9A80069190E = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CE8F2D572AC8B9A70069190E;
+					};
+				};
+			};
+			buildConfigurationList = CE8F2D532AC8B9A70069190E /* Build configuration list for PBXProject "Night Pod" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE8F2D4F2AC8B9A70069190E;
+			packageReferences = (
+				CEF46DFD2ACA006200EB1537 /* XCRemoteSwiftPackageReference "XMLCoder" */,
+				CE72C9DC2ACAC29200AA0CF6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				CE72C9DF2ACAC89B00AA0CF6 /* XCLocalSwiftPackageReference "../FeedKit" */,
+			);
+			productRefGroup = CE8F2D592AC8B9A70069190E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE8F2D572AC8B9A70069190E /* Night Pod */,
+				CE8F2D6A2AC8B9A80069190E /* Night PodTests */,
+				CE8F2D742AC8B9A80069190E /* Night PodUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE8F2D562AC8B9A70069190E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8F2D662AC8B9A80069190E /* Preview Assets.xcassets in Resources */,
+				CE8F2D622AC8B9A80069190E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8F2D692AC8B9A80069190E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8F2D732AC8B9A80069190E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE8F2D542AC8B9A70069190E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6EED922AC8C9AA00BFA6EC /* Podcast.swift in Sources */,
+				CE72C9DB2ACA1AFC00AA0CF6 /* PodcastDetailView.swift in Sources */,
+				CE8F2D5E2AC8B9A70069190E /* PodcastsView.swift in Sources */,
+				CE8F2D5C2AC8B9A70069190E /* Night_PodApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8F2D672AC8B9A80069190E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8F2D702AC8B9A80069190E /* Night_PodTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8F2D712AC8B9A80069190E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8F2D7A2AC8B9A80069190E /* Night_PodUITests.swift in Sources */,
+				CE8F2D7C2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE8F2D6D2AC8B9A80069190E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE8F2D572AC8B9A70069190E /* Night Pod */;
+			targetProxy = CE8F2D6C2AC8B9A80069190E /* PBXContainerItemProxy */;
+		};
+		CE8F2D772AC8B9A80069190E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE8F2D572AC8B9A70069190E /* Night Pod */;
+			targetProxy = CE8F2D762AC8B9A80069190E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CE8F2D7D2AC8B9A80069190E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CE8F2D7E2AC8B9A80069190E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		CE8F2D802AC8B9A80069190E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Night Pod/Night_Pod.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Night Pod/Preview Content\"";
+				DEVELOPMENT_TEAM = M2QJQZX6EU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Uses Media Library to access your subscribed podcasts";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kim.cracksby.Night-Pod";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE8F2D812AC8B9A80069190E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Night Pod/Night_Pod.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Night Pod/Preview Content\"";
+				DEVELOPMENT_TEAM = M2QJQZX6EU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Uses Media Library to access your subscribed podcasts";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kim.cracksby.Night-Pod";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE8F2D832AC8B9A80069190E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kim.cracksby.Night-PodTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Night Pod.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Night Pod";
+			};
+			name = Debug;
+		};
+		CE8F2D842AC8B9A80069190E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kim.cracksby.Night-PodTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Night Pod.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Night Pod";
+			};
+			name = Release;
+		};
+		CE8F2D862AC8B9A80069190E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kim.cracksby.Night-PodUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Night Pod";
+			};
+			name = Debug;
+		};
+		CE8F2D872AC8B9A80069190E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "kim.cracksby.Night-PodUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Night Pod";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE8F2D532AC8B9A70069190E /* Build configuration list for PBXProject "Night Pod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE8F2D7D2AC8B9A80069190E /* Debug */,
+				CE8F2D7E2AC8B9A80069190E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE8F2D7F2AC8B9A80069190E /* Build configuration list for PBXNativeTarget "Night Pod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE8F2D802AC8B9A80069190E /* Debug */,
+				CE8F2D812AC8B9A80069190E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE8F2D822AC8B9A80069190E /* Build configuration list for PBXNativeTarget "Night PodTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE8F2D832AC8B9A80069190E /* Debug */,
+				CE8F2D842AC8B9A80069190E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE8F2D852AC8B9A80069190E /* Build configuration list for PBXNativeTarget "Night PodUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE8F2D862AC8B9A80069190E /* Debug */,
+				CE8F2D872AC8B9A80069190E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CE72C9DF2ACAC89B00AA0CF6 /* XCLocalSwiftPackageReference "../FeedKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../FeedKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE72C9DC2ACAC29200AA0CF6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+		CEF46DFD2ACA006200EB1537 /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/XMLCoder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.17.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE72C9DC2ACAC29200AA0CF6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+		CE72C9E02ACAC89B00AA0CF6 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeedKit;
+		};
+		CEF46DFE2ACA006200EB1537 /* XMLCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEF46DFD2ACA006200EB1537 /* XCRemoteSwiftPackageReference "XMLCoder" */;
+			productName = XMLCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CE8F2D502AC8B9A70069190E /* Project object */;
+}
