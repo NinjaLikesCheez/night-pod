@@ -13,7 +13,7 @@ struct Night_PodApp: App {
 	var sharedModelContainer: ModelContainer = {
 		let schema = Schema([
 			Podcast.self,
-			PodcastEpisode.self
+			Episode.self
 		])
 		let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 		
@@ -24,10 +24,24 @@ struct Night_PodApp: App {
 		}
 	}()
 
+	var downloadManager = DownloadManager()
+	var playerManager: PlayerManager
+
+	init() {
+		playerManager = PlayerManager(downloadManager: downloadManager)
+	}
+
 	var body: some Scene {
 		WindowGroup {
-			PodcastsView()
+			VStack {
+				PodcastsView()
+//				if playerManager.state == .playing {
+					Player()
+//				}
+			}
 		}
+		.environment(playerManager)
+		.environment(downloadManager)
 		.modelContainer(sharedModelContainer)
 	}
 }

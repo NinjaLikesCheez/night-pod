@@ -13,21 +13,22 @@ import CachedAsyncImage
 struct PodcastDetailView: View {
 	let podcast: Podcast
 
-	@State private var filter: PodcastDetailViewFilter = .decreasing
+	@Environment(DownloadManager.self) var downloadManager
+	@Environment(PlayerManager.self) var playerManager
+
+	@State private var filter: PodcastDetailViewFilter = .newestToOldest
 	@State private var showingFilters = false
 
 	enum PodcastDetailViewFilter {
-		case increasing
-		case decreasing
-//		TODO: Implement
-//		case recent
+		case newestToOldest
+		case oldestToNewest
 	}
 
-	var filteredEpisodes: [PodcastEpisode] {
+	var filteredEpisodes: [Episode] {
 		switch filter {
-		case .increasing:
+		case .oldestToNewest:
 			return podcast.episodes.sorted(by: { $0.publishedDate < $1.publishedDate })
-		case .decreasing:
+		case .newestToOldest:
 			return podcast.episodes.sorted(by: { $0.publishedDate > $1.publishedDate })
 		}
 	}
@@ -40,25 +41,86 @@ struct PodcastDetailView: View {
 
 			List {
 				ForEach(filteredEpisodes) { episode in
-					Text(episode.title)
+					PodcastDetailRowView(episode: episode)
+						.swipeActions(edge: .leading) {
+							Button {
+								Task {
+									do {
+										try await downloadEpisode(episode)
+									} catch {
+										print("download episode \(episode.title) failed: \(error)")
+									}
+								}
+							} label: {
+								Image(systemName: "arrow.down")
+							}
+							.tint(.green)
+
+							Button {
+								Task {
+									do {
+										try await playerManager.enqueue(episode)
+									} catch {
+										print("enqueue error: \(error)")
+									}
+								}
+							} label: {
+								Image(systemName: "tray.full")
+							}
+						}
+						.onTapGesture {
+							do {
+								try playerManager.play(episode: episode)
+							} catch {
+								print("play error: \(error)")
+							}
+						}
 				}
 			}
 		}
 		.toolbar {
-			ToolbarItem(placement: .navigationBarTrailing) {
+			ToolbarItem(placement: .topBarTrailing) {
 				Button {
 					showingFilters = true
 				} label: {
 					Image(systemName: "line.3.horizontal.decrease.circle")
 				}
 				.confirmationDialog("Select a filter", isPresented: $showingFilters) {
-					Button("Increasing") { filter = .increasing }
-					Button("Decreasing") { filter = .decreasing }
+					Button("Newest First") { filter = .newestToOldest }
+					Button("Oldest First") { filter = .oldestToNewest }
 				} message: {
 					Text("Select a new filter")
 				}
 			}
+
+			ToolbarItem(placement: .topBarTrailing) {
+				Button {
+					downloadAllEpisodes()
+				} label: {
+					downloadManager.currentDownloadCount > 0
+					? Image(systemName: "checkmark.circle")
+					: Image(systemName: "arrow.down.circle.dotted")
+				}
+			}
 		}
+	}
+
+	func downloadAllEpisodes() {
+		podcast.episodes
+			.filter { downloadManager.isDownloading(episode: $0) }
+			.forEach { episode in
+				Task {
+					do {
+						try await downloadManager.scheduleDownload(episode)
+					} catch {
+						print("schedule episode download failure: \(error). Episode: \(episode.title)")
+					}
+				}
+			}
+	}
+
+	func downloadEpisode(_ episode: Episode) async throws {
+		try await downloadManager.scheduleDownload(episode)
 	}
 }
 
@@ -88,5 +150,44 @@ struct PodcastDetailHeaderView: View {
 			Text(podcast.title)
 				.bold()
 		}
+	}
+}
+
+struct PodcastDetailRowView: View {
+	var episode: Episode
+
+	var body: some View {
+		VStack {
+			HStack {
+				Text(episode.title)
+				Spacer()
+				Text(episode.publishedDate.podcastDetailRowString())
+			}
+
+			// TODO: This could be HTML, if so it should be formatted appropriately
+			Text(episode.episodeDescription)
+				.lineLimit(2)
+				.font(.subheadline)
+				.foregroundStyle(.gray)
+		}
+	}
+}
+
+private extension Date {
+	func podcastDetailRowString() -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "MMM d, yyyy"
+
+		guard
+			// Euro centralism :eyes:
+			let currentYear = Calendar(identifier: .gregorian).dateComponents([.year], from: Date()).year,
+			let dateYear = Calendar(identifier: .gregorian).dateComponents([.year], from: self).year,
+			currentYear == dateYear
+		else {
+			return formatter.string(from: self)
+		}
+
+		formatter.dateFormat = "MMM d"
+		return formatter.string(from: self)
 	}
 }

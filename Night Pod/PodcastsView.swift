@@ -35,7 +35,11 @@ struct PodcastsView: View {
 				}
 			}
 		} detail: {
-			Text("Select an item")
+			if let podcast = podcasts.first {
+				PodcastDetailView(podcast: podcast)
+			} else {
+				Text("Add a pocast ^^")
+			}
 		}
 	}
 
@@ -63,9 +67,11 @@ struct RowView: View {
 						.cornerRadius(25)
 				},
 				placeholder: {
-					ProgressView()
-						.aspectRatio(contentMode: .fit)
-						.frame(maxWidth: 100, maxHeight: 100)
+					ZStack {
+						ProgressView()
+							.aspectRatio(contentMode: .fit)
+							.frame(maxWidth: 100, maxHeight: 100)
+					}
 				}
 			)
 
@@ -102,17 +108,17 @@ struct AddPodcastButton: View {
 	}
 
 	private func addPodcast() {
-//		guard
-//			let podcastURL = URL(string: podcastURLString)
-//		else {
-//			print("addPodcast URL Validation error: \(podcastURLString)")
-//			return
-//		}
+		guard
+			let podcastURL = URL(string: podcastURLString)
+		else {
+			print("addPodcast URL Validation error: \(podcastURLString)")
+			return
+		}
 
 		Task {
 			do {
-//				modelContext.insert(try await Podcast.from(url: podcastURL))
-				modelContext.insert(try await Podcast.from(url: URL(string: "https://audioboom.com/channels/2399216.rss")!))
+				modelContext.insert(try await Podcast.from(url: podcastURL))
+//				modelContext.insert(try await Podcast.from(url: URL(string: "https://audioboom.com/channels/2399216.rss")!))
 			} catch {
 				print("addPodcast - PodcastChannel init error: \(error)")
 			}
