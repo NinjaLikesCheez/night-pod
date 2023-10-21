@@ -84,7 +84,7 @@ struct Player: View {
 			Button {
 				// TODO: Enable Player to drag up into a sheet that has icon art etc
 			} label: {
-				CachedAsyncImage
+//				CachedAsyncImage
 			}
 		}
 		.frame(maxWidth: .infinity, maxHeight: 60)

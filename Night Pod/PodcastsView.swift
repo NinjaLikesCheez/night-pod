@@ -19,7 +19,8 @@ struct PodcastsView: View {
 			List {
 				ForEach(podcasts) { podcast in
 					NavigationLink {
-						PodcastDetailView(podcast: podcast)
+//						PodcastDetailView(podcast: podcast)
+						EpisodesView(podcast: podcast)
 					} label: {
 						RowView(podcast: podcast)
 					}
@@ -36,7 +37,8 @@ struct PodcastsView: View {
 			}
 		} detail: {
 			if let podcast = podcasts.first {
-				PodcastDetailView(podcast: podcast)
+//				PodcastDetailView(podcast: podcast)
+				EpisodesView(podcast: podcast)
 			} else {
 				Text("Add a pocast ^^")
 			}

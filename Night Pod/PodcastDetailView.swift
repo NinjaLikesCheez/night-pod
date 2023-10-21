@@ -34,75 +34,52 @@ struct PodcastDetailView: View {
 	}
 
 	var body: some View {
-		VStack {
-			PodcastDetailHeaderView(podcast: podcast)
-
-			Spacer()
-
-			List {
-				ForEach(filteredEpisodes) { episode in
-					PodcastDetailRowView(episode: episode)
-						.swipeActions(edge: .leading) {
-							Button {
-								Task {
-									do {
-										try await downloadEpisode(episode)
-									} catch {
-										print("download episode \(episode.title) failed: \(error)")
+		ScrollViewWithStickyHeader(
+			header: {
+				CoverHeaderView(podcast: podcast)
+			},
+			headerHeight: CoverHeaderView.height,
+			content: {
+				List {
+					ForEach(filteredEpisodes) { episode in
+						PodcastDetailRowView(episode: episode)
+							.swipeActions(edge: .leading) {
+								Button {
+									Task {
+										do {
+											try await downloadEpisode(episode)
+										} catch {
+											print("download episode \(episode.title) failed: \(error)")
+										}
 									}
+								} label: {
+									Image(systemName: "arrow.down")
 								}
-							} label: {
-								Image(systemName: "arrow.down")
-							}
-							.tint(.green)
+								.tint(.green)
 
-							Button {
-								Task {
-									do {
-										try await playerManager.enqueue(episode)
-									} catch {
-										print("enqueue error: \(error)")
+								Button {
+									Task {
+										do {
+											try await playerManager.enqueue(episode)
+										} catch {
+											print("enqueue error: \(error)")
+										}
 									}
+								} label: {
+									Image(systemName: "tray.full")
 								}
-							} label: {
-								Image(systemName: "tray.full")
 							}
-						}
-						.onTapGesture {
-							do {
-								try playerManager.play(episode: episode)
-							} catch {
-								print("play error: \(error)")
+							.onTapGesture {
+								do {
+									try playerManager.play(episode: episode)
+								} catch {
+									print("play error: \(error)")
+								}
 							}
-						}
+					}
 				}
 			}
-		}
-		.toolbar {
-			ToolbarItem(placement: .topBarTrailing) {
-				Button {
-					showingFilters = true
-				} label: {
-					Image(systemName: "line.3.horizontal.decrease.circle")
-				}
-				.confirmationDialog("Select a filter", isPresented: $showingFilters) {
-					Button("Newest First") { filter = .newestToOldest }
-					Button("Oldest First") { filter = .oldestToNewest }
-				} message: {
-					Text("Select a new filter")
-				}
-			}
-
-			ToolbarItem(placement: .topBarTrailing) {
-				Button {
-					downloadAllEpisodes()
-				} label: {
-					downloadManager.currentDownloadCount > 0
-					? Image(systemName: "checkmark.circle")
-					: Image(systemName: "arrow.down.circle.dotted")
-				}
-			}
-		}
+		)
 	}
 
 	func downloadAllEpisodes() {

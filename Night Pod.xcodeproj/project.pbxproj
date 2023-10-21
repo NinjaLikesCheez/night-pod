@@ -21,6 +21,13 @@
 		CE8F2D7A2AC8B9A80069190E /* Night_PodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */; };
 		CE8F2D7C2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */; };
 		CEA004542ACC9289007893FE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA004532ACC9289007893FE /* Player.swift */; };
+		CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */; };
+		CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */; };
+		CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */; };
+		CED12CA22AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12CA12AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift */; };
+		CED12CA52AE1BD8700AD9B80 /* ScrollViewWithOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12CA42AE1BD8700AD9B80 /* ScrollViewWithOffset.swift */; };
+		CED12CA72AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12CA62AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift */; };
+		CED12CAA2AE1C6CE00AD9B80 /* CoverHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12CA92AE1C6CE00AD9B80 /* CoverHeaderView.swift */; };
 		CEE9D9422AD02D6E0029748C /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9D9412AD02D6E0029748C /* PlayerManager.swift */; };
 		CEF46DFF2ACA006200EB1537 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = CEF46DFE2ACA006200EB1537 /* XMLCoder */; };
 /* End PBXBuildFile section */
@@ -59,6 +66,13 @@
 		CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITests.swift; sourceTree = "<group>"; };
 		CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEA004532ACC9289007893FE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewHeader.swift; sourceTree = "<group>"; };
+		CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
+		CED12CA12AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetTracker.swift; sourceTree = "<group>"; };
+		CED12CA42AE1BD8700AD9B80 /* ScrollViewWithOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithOffset.swift; sourceTree = "<group>"; };
+		CED12CA62AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithStickyHeader.swift; sourceTree = "<group>"; };
+		CED12CA92AE1C6CE00AD9B80 /* CoverHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverHeaderView.swift; sourceTree = "<group>"; };
 		CEE9D9402AD01DAF0029748C /* Night-Pod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Night-Pod-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CEE9D9412AD02D6E0029748C /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +144,7 @@
 		CE8F2D5A2AC8B9A70069190E /* Night Pod */ = {
 			isa = PBXGroup;
 			children = (
+				CED12C9A2AE1B72E00AD9B80 /* UI */,
 				CEE9D9402AD01DAF0029748C /* Night-Pod-Info.plist */,
 				CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */,
 				CEA004522ACC9277007893FE /* Player */,
@@ -141,6 +156,7 @@
 				CE8F2D632AC8B9A80069190E /* Night_Pod.entitlements */,
 				CE8F2D642AC8B9A80069190E /* Preview Content */,
 				CE72C9E82ACB0E5000AA0CF6 /* DownloadManager.swift */,
+				CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */,
 			);
 			path = "Night Pod";
 			sourceTree = "<group>";
@@ -177,6 +193,35 @@
 				CEE9D9412AD02D6E0029748C /* PlayerManager.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		CED12C9A2AE1B72E00AD9B80 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CED12CA82AE1C6C000AD9B80 /* CoverHeaderView */,
+				CED12CA32AE1BD5800AD9B80 /* ScrollView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CED12CA32AE1BD5800AD9B80 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */,
+				CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */,
+				CED12CA12AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift */,
+				CED12CA42AE1BD8700AD9B80 /* ScrollViewWithOffset.swift */,
+				CED12CA62AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		CED12CA82AE1C6C000AD9B80 /* CoverHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				CED12CA92AE1C6CE00AD9B80 /* CoverHeaderView.swift */,
+			);
+			path = CoverHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,12 +365,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EED922AC8C9AA00BFA6EC /* Podcast.swift in Sources */,
+				CED12CA22AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift in Sources */,
 				CEA004542ACC9289007893FE /* Player.swift in Sources */,
 				CE72C9E92ACB0E5000AA0CF6 /* DownloadManager.swift in Sources */,
+				CED12CA72AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift in Sources */,
 				CE72C9DB2ACA1AFC00AA0CF6 /* PodcastDetailView.swift in Sources */,
+				CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */,
 				CE8F2D5E2AC8B9A70069190E /* PodcastsView.swift in Sources */,
+				CED12CAA2AE1C6CE00AD9B80 /* CoverHeaderView.swift in Sources */,
 				CE72C9E72ACB099C00AA0CF6 /* Episode.swift in Sources */,
 				CEE9D9422AD02D6E0029748C /* PlayerManager.swift in Sources */,
+				CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */,
+				CED12CA52AE1BD8700AD9B80 /* ScrollViewWithOffset.swift in Sources */,
+				CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */,
 				CE8F2D5C2AC8B9A70069190E /* Night_PodApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
