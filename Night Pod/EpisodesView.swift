@@ -11,6 +11,9 @@ import CachedAsyncImage
 struct EpisodesView: View {
 	let podcast: Podcast
 
+	@State private var filter: Filter = .newestToOldest
+	@State private var isShowingFilters = false
+
 	var body: some View {
 		NavigationStack {
 			ScrollView {
@@ -21,11 +24,10 @@ struct EpisodesView: View {
 	}
 
 	var header: some View {
-		// TODO: Continue with this: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/Previews/SpotifyPreviewScreen.swift#L33
 		ScrollViewHeader {
 			ZStack {
 				LinearGradient(
-					colors: [.brown, .black],
+					colors: [.clear, .clear], // TODO: update this to primary color of the image
 					startPoint: .top,
 					endPoint: .bottom
 				)
@@ -63,18 +65,21 @@ struct EpisodesView: View {
 		.padding()
 	}
 
+	var subtitle: String {
+		[podcast.owner, podcast.category]
+			.compactMap { $0 }
+			.joined(separator: " · ")
+	}
+
+
 	var title: some View {
 		VStack(alignment: .leading, spacing: 8) {
 			Text(podcast.title)
 				.bold()
 				.font(.title2)
 				.frame(maxWidth: .infinity, alignment: .leading)
-			
-			Text("Subtitle")
-				.bold()
-				.font(.footnote)
 
-			Text("Producer · Release")
+			Text(subtitle)
 				.bold()
 				.font(.footnote)
 				.foregroundColor(.secondary)
@@ -83,8 +88,10 @@ struct EpisodesView: View {
 
 	var buttons: some View {
 		HStack(spacing: 15) {
-			Image(systemName: "heart")
+			favouriteButton
+			// TODO: make this popup a menu showing the size and number of episodes that will be downloaded with a confirmation
 			Image(systemName: "arrow.down.circle")
+			filterButton
 			Image(systemName: "ellipsis")
 			Spacer()
 			Image(systemName: "shuffle")
@@ -95,9 +102,18 @@ struct EpisodesView: View {
 		.font(.title3)
 	}
 
+	var favouriteButton: some View {
+		Button {
+			podcast.isFavorited.toggle()
+		} label: {
+			Image(systemName: podcast.isFavorited ? "heart.fill" : "heart")
+		}
+		.foregroundStyle(podcast.isFavorited ? .red : .primary)
+	}
+
 	var list: some View {
 		LazyVStack(alignment: .leading, spacing: 30) {
-			ForEach(podcast.episodes) { episode in
+			ForEach(filteredEpisodes) { episode in
 				listItem(episode)
 			}
 		}
@@ -111,5 +127,49 @@ struct EpisodesView: View {
 				.font(.footnote)
 				.foregroundColor(.secondary)
 		}
+	}
+}
+
+// MARK: - Filter behaviour
+extension EpisodesView {
+	enum Filter {
+		case newestToOldest
+		case oldestToNewest
+	}
+
+	var filteredEpisodes: [Episode] {
+		switch filter {
+		case .newestToOldest: return podcast.episodes.sorted(by: { $0.publishedDate > $1.publishedDate })
+		case .oldestToNewest: return podcast.episodes.sorted(by: { $0.publishedDate < $1.publishedDate })
+		}
+	}
+
+	var filterButton: some View {
+		Menu {
+			Button {
+				filter = .newestToOldest
+			} label: {
+				HStack {
+					Text("Newest First")
+					if filter == .newestToOldest {
+						Image(systemName: "checkmark")
+					}
+				}
+			}
+
+			Button {
+				filter = .oldestToNewest
+			} label: {
+				HStack {
+					Text("Oldest First")
+					if filter == .oldestToNewest {
+						Image(systemName: "checkmark")
+					}
+				}
+			}
+		} label: {
+			Image(systemName: "line.3.horizontal.decrease.circle")
+		}
+		.foregroundStyle(.primary)
 	}
 }

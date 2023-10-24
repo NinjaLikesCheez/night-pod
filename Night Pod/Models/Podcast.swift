@@ -18,6 +18,9 @@ final class Podcast {
 	let link: URL?
 	let imageURL: URL?
 	let guid: UUID
+	let owner: String?
+	let category: String?
+	var isFavorited: Bool
 
 	let episodes: [Episode]
 
@@ -25,6 +28,8 @@ final class Podcast {
 		title = feed.title ?? "No Title Provided"
 		channelDescription = feed.description ?? "No Description Provided"
 		link = feed.link != nil ? URL(string: feed.link!) : nil
+		owner = feed.iTunes?.iTunesOwner?.name ?? feed.managingEditor
+		category = feed.iTunes?.iTunesCategories?.first?.attributes?.text
 
 		if let image = feed.image, let url = image.url {
 			imageURL = URL(string: url)
@@ -33,6 +38,7 @@ final class Podcast {
 		guid = .init()
 		episodes = (feed.items ?? [])
 			.map { .init($0) }
+		isFavorited = false
 	}
 
 	static func from(url: URL) async throws -> Podcast {
