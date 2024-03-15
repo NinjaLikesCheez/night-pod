@@ -9,16 +9,10 @@ import SwiftUI
 import CachedAsyncImage
 
 struct CoverHeaderView: View {
-	// TODO: make DTO for this
 	let podcast: Podcast
 
 	static var height: CGFloat = 280
 	private var headerVisibleRatio: CGFloat
-
-	init(podcast: Podcast, headerVisibleRatio: CGFloat = 1) {
-		self.podcast = podcast
-		self.headerVisibleRatio = headerVisibleRatio
-	}
 
 	var body: some View {
 		ZStack {
@@ -66,13 +60,5 @@ struct CoverHeaderView: View {
 		.padding(.top, 60)
 		.padding(.bottom, 20)
 		.padding(.horizontal, 20)
-	}
-}
-
-private extension CGFloat {
-	func capped(to range: ClosedRange<Self>) -> Self {
-		if self < range.lowerBound { return range.lowerBound }
-		if self > range.upperBound { return range.upperBound }
-		return self
 	}
 }

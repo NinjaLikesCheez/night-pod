@@ -137,7 +137,7 @@ class DownloadManager: NSObject {
 				try manager.createDirectory(at: podcastDirectory, withIntermediateDirectories: true)
 			}
 
-			let newFileLocation = podcastDirectory.appending(path: episode.title)
+			let newFileLocation = podcastDirectory.appending(path: "\(episode.title).mp3")
 
 			if manager.fileExists(atPath: newFileLocation.path) {
 				try manager.removeItem(at: newFileLocation)

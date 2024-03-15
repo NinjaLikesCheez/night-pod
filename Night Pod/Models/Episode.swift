@@ -11,13 +11,13 @@ import FeedKit
 
 @Model
 final class PodcastMediaContent {
-	enum PodcastMediaContentType: Codable {
+	enum MediaContentType: Codable {
 		case image
 		case audio
 		case unknown
 	}
 
-	let type: PodcastMediaContentType
+	let type: MediaContentType
 	let url: URL?
 
 	init(_ content: MediaContent) {

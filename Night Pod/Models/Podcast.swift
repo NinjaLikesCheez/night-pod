@@ -12,8 +12,7 @@ import FeedKit
 
 @Model
 final class Podcast {
-	@Attribute(.unique) 
-	let title: String
+	@Attribute(.unique) let title: String
 	let channelDescription: String
 	let link: URL?
 	let imageURL: URL?
@@ -21,7 +20,6 @@ final class Podcast {
 	let owner: String?
 	let category: String?
 	var isFavorited: Bool
-
 	let episodes: [Episode]
 
 	private init(_ feed: RSSFeed) {
@@ -41,12 +39,12 @@ final class Podcast {
 		isFavorited = false
 	}
 
-	static func from(url: URL) async throws -> Podcast {
-		enum Error: Swift.Error {
-			case decodeError
-			case incorrectFeedType
-		}
+	enum Error: Swift.Error {
+		case decodeError
+		case incorrectFeedType
+	}
 
+	static func from(url: URL) async throws -> Podcast {
 		// Decode XML to Podcast
 		let (data, _) = try await URLSession.shared.data(from: url)
 		let feed = FeedParser(data: data).parse()
@@ -54,10 +52,7 @@ final class Podcast {
 		switch feed {
 		case .success(let feed):
 			switch feed {
-			case .rss(let rssFeed):
-				let podcast = Podcast(rssFeed)
-//				podcast.episodes.forEach { $0.podcast = podcast }
-				return podcast
+			case .rss(let rssFeed): return Podcast(rssFeed)
 			default: throw Error.incorrectFeedType
 			}
 		case .failure(let error):

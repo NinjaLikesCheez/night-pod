@@ -15,7 +15,7 @@ struct Night_PodApp: App {
 			Podcast.self,
 			Episode.self
 		])
-		
+
 		do {
 			return try ModelContainer(
 				for: schema,
@@ -28,24 +28,18 @@ struct Night_PodApp: App {
 		}
 	}()
 
-	var downloadManager = DownloadManager()
-	var playerManager: PlayerManager
-
-	init() {
-		playerManager = PlayerManager(downloadManager: downloadManager)
-	}
+	var playerManager = PlayerManager(downloadManager: DownloadManager())
 
 	var body: some Scene {
 		WindowGroup {
 			VStack {
 				PodcastsView()
-				if playerManager.state == .playing {
+//				if playerManager.state == .playing {
 					Player()
-				}
+//				}
 			}
 		}
 		.environment(playerManager)
-		.environment(downloadManager)
 		.modelContainer(sharedModelContainer)
 	}
 }

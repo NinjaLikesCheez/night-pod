@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2D74512BA4605600C82A0C /* With.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D74502BA4605600C82A0C /* With.swift */; };
+		CE2D74532BA48A8C00C82A0C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D74522BA48A8C00C82A0C /* CGFloat+Extensions.swift */; };
 		CE6EED922AC8C9AA00BFA6EC /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */; };
-		CE72C9DB2ACA1AFC00AA0CF6 /* PodcastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72C9DA2ACA1AFC00AA0CF6 /* PodcastDetailView.swift */; };
 		CE72C9DE2ACAC29200AA0CF6 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */; };
 		CE72C9E12ACAC89B00AA0CF6 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE72C9E02ACAC89B00AA0CF6 /* FeedKit */; };
 		CE72C9E72ACB099C00AA0CF6 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72C9E62ACB099C00AA0CF6 /* Episode.swift */; };
@@ -21,7 +22,6 @@
 		CE8F2D7A2AC8B9A80069190E /* Night_PodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */; };
 		CE8F2D7C2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */; };
 		CEA004542ACC9289007893FE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA004532ACC9289007893FE /* Player.swift */; };
-		CECA9D0B2BA44944007D6052 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA9D0A2BA44944007D6052 /* Extensions.swift */; };
 		CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */; };
 		CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */; };
 		CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */; };
@@ -51,8 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2D74502BA4605600C82A0C /* With.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = With.swift; sourceTree = "<group>"; };
+		CE2D74522BA48A8C00C82A0C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
-		CE72C9DA2ACA1AFC00AA0CF6 /* PodcastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDetailView.swift; sourceTree = "<group>"; };
 		CE72C9E62ACB099C00AA0CF6 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CE72C9E82ACB0E5000AA0CF6 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		CE8F2D582AC8B9A70069190E /* Night Pod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Night Pod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +68,6 @@
 		CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITests.swift; sourceTree = "<group>"; };
 		CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEA004532ACC9289007893FE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		CECA9D0A2BA44944007D6052 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewHeader.swift; sourceTree = "<group>"; };
 		CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
@@ -107,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE2D744F2BA4604F00C82A0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE2D74502BA4605600C82A0C /* With.swift */,
+				CE2D74522BA48A8C00C82A0C /* CGFloat+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE72C9E22ACB07D800AA0CF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,13 +123,6 @@
 				CE72C9E62ACB099C00AA0CF6 /* Episode.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		CE72C9E32ACB089C00AA0CF6 /* View Builders */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Builders";
 			sourceTree = "<group>";
 		};
 		CE8F2D4F2AC8B9A70069190E = {
@@ -146,20 +148,18 @@
 		CE8F2D5A2AC8B9A70069190E /* Night Pod */ = {
 			isa = PBXGroup;
 			children = (
+				CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */,
+				CE2D744F2BA4604F00C82A0C /* Extensions */,
 				CECA9D0E2BA45929007D6052 /* Episodes */,
 				CED12C9A2AE1B72E00AD9B80 /* UI */,
 				CEE9D9402AD01DAF0029748C /* Night-Pod-Info.plist */,
-				CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */,
 				CEA004522ACC9277007893FE /* Player */,
-				CE72C9E32ACB089C00AA0CF6 /* View Builders */,
 				CE72C9E22ACB07D800AA0CF6 /* Models */,
 				CE8F2D5D2AC8B9A70069190E /* PodcastsView.swift */,
-				CE72C9DA2ACA1AFC00AA0CF6 /* PodcastDetailView.swift */,
 				CE8F2D612AC8B9A80069190E /* Assets.xcassets */,
 				CE8F2D632AC8B9A80069190E /* Night_Pod.entitlements */,
 				CE8F2D642AC8B9A80069190E /* Preview Content */,
 				CE72C9E82ACB0E5000AA0CF6 /* DownloadManager.swift */,
-				CECA9D0A2BA44944007D6052 /* Extensions.swift */,
 			);
 			path = "Night Pod";
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					CE8F2D572AC8B9A70069190E = {
 						CreatedOnToolsVersion = 15.0;
@@ -376,19 +376,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EED922AC8C9AA00BFA6EC /* Podcast.swift in Sources */,
+				CE2D74512BA4605600C82A0C /* With.swift in Sources */,
 				CED12CA22AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift in Sources */,
 				CEA004542ACC9289007893FE /* Player.swift in Sources */,
 				CE72C9E92ACB0E5000AA0CF6 /* DownloadManager.swift in Sources */,
 				CED12CA72AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift in Sources */,
-				CE72C9DB2ACA1AFC00AA0CF6 /* PodcastDetailView.swift in Sources */,
 				CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */,
 				CE8F2D5E2AC8B9A70069190E /* PodcastsView.swift in Sources */,
 				CED12CAA2AE1C6CE00AD9B80 /* CoverHeaderView.swift in Sources */,
 				CE72C9E72ACB099C00AA0CF6 /* Episode.swift in Sources */,
 				CEE9D9422AD02D6E0029748C /* PlayerManager.swift in Sources */,
-				CECA9D0B2BA44944007D6052 /* Extensions.swift in Sources */,
 				CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */,
 				CED12CA52AE1BD8700AD9B80 /* ScrollViewWithOffset.swift in Sources */,
+				CE2D74532BA48A8C00C82A0C /* CGFloat+Extensions.swift in Sources */,
 				CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */,
 				CE8F2D5C2AC8B9A70069190E /* Night_PodApp.swift in Sources */,
 			);
@@ -461,6 +461,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -522,6 +523,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -549,6 +551,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Night Pod/Night_Pod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Night Pod/Preview Content\"";
 				DEVELOPMENT_TEAM = M2QJQZX6EU;
 				ENABLE_PREVIEWS = YES;
@@ -589,6 +592,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Night Pod/Night_Pod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Night Pod/Preview Content\"";
 				DEVELOPMENT_TEAM = M2QJQZX6EU;
 				ENABLE_PREVIEWS = YES;
@@ -628,6 +632,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -650,6 +655,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -671,6 +677,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -692,6 +699,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;

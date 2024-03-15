@@ -11,75 +11,66 @@ import AVKit
 
 @Observable
 class PlayerManager: NSObject {
-	enum State {
-		case playing
-		case paused
+	private var session = with(AVAudioSession.sharedInstance()) {
+		try? $0.setCategory(.playback, mode: .spokenAudio, options: [.allowAirPlay, .allowBluetooth, .allowBluetoothA2DP])
 	}
+	private let player = AVQueuePlayer(items: [])
+	private let downloadManager: DownloadManager
 
-	let session: AVAudioSession
-	var player: AVQueuePlayer
-	let downloadManager: DownloadManager
-
-	var state: State {
-		switch player.timeControlStatus {
-		case .paused, .waitingToPlayAtSpecifiedRate:
-			return .paused
-		case .playing:
-			return .playing
-		default:
-			return .paused
-		}
-	}
-
-	enum PlayerManagerError: Error{
-		case notDownloaded
-	}
+	var state: State = .paused
 
 	init(downloadManager: DownloadManager) {
 		self.downloadManager = downloadManager
-		session = AVAudioSession.sharedInstance()
-		player = .init(items: [])
+	}
 
-		do {
-			try session.setCategory(.playback, mode: .spokenAudio, options: .allowAirPlay)
-		} catch {
-			print("failed to set category on session? \(error)")
+	func toggle() throws {
+		switch state {
+		case .playing:
+			try pause()
+		case .paused:
+			try play()
 		}
 	}
 
-	func play(episode: Episode) throws {
-		if let location = episode.fileURL {
-			player.insert(.init(url: location), after: nil)
-			try play()
-		} else {
-			// Download the item
-			// TODO: add a streaming option for large files?	
-			Task {
-				try await downloadManager.scheduleDownload(episode)
-				return try play(episode: episode)
-			}
+	func play(_ episode: Episode) async throws {
+		if !episode.downloaded {
+			try await downloadManager.scheduleDownload(episode)
 		}
+
+		guard let fileURL = episode.fileURL else { throw Error.notDownloaded }
+
+		try pause()
+		let newItem = AVPlayerItem(url: fileURL)
+		if let item = player.items().first {
+			player.insert(newItem, after: item)
+			player.remove(item)
+			player.insert(item, after: newItem)
+		} else {
+			player.insert(newItem, after: nil)
+		}
+		try play()
 	}
 
 	func play() throws {
 		try session.setActive(true)
+		state = .playing
 		player.play()
 	}
 
-	func pause() {
+	func pause() throws {
+		try session.setActive(false, options: .notifyOthersOnDeactivation)
+		state = .paused
 		player.pause()
 	}
 
-	func forward(by amount: TimeInterval) {
-		// TODO: use step(byCount:) here?
-		var seekTo = player.currentTime()
-		seekTo.value += Int64(amount)
-		player.seek(to: seekTo, toleranceBefore: .zero, toleranceAfter: .zero)
-	}
-	func rewind(by amount: TimeInterval) {
-		var seekTo = player.currentTime()
-		seekTo.value -= Int64(amount)
-		player.seek(to: seekTo, toleranceBefore: .zero, toleranceAfter: .zero)
+	func seek(by amount: Double) {
+		guard let duration = player.currentItem?.duration else { return }
+		let currentTime = player.currentTime().seconds
+		let seekedTime = currentTime + amount
+
+		if seekedTime < duration.seconds {
+			player.seek(to: CMTimeMake(value: Int64(seekedTime * 1000), timescale: 1000), toleranceBefore: .zero, toleranceAfter: .zero)
+		}
 	}
 
 	func enqueue(_ episode: Episode) async throws {
@@ -90,9 +81,20 @@ class PlayerManager: NSObject {
 
 		guard let location = episode.fileLocation else {
 			print("episode didn't have a file location, can't enqueue...")
-			throw PlayerManagerError.notDownloaded
+			throw Error.notDownloaded
 		}
 
-		player.insert(.init(url: URL.documentsDirectory.appending(path: location)), after: player.items().last)
+		player.insert(.init(url: URL.documentsDirectory.appending(path: location)), after: nil)
+	}
+}
+
+extension PlayerManager {
+	enum State {
+		case playing
+		case paused
+	}
+
+	enum Error: Swift.Error{
+		case notDownloaded
 	}
 }

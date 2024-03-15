@@ -118,7 +118,9 @@ struct EpisodesView: View {
 				listItem(episode)
 					.onTapGesture {
 						// TODO: handler error
-						try? player.play(episode: episode)
+						Task {
+							try await player.play(episode)
+						}
 					}
 			}
 		}
@@ -126,11 +128,13 @@ struct EpisodesView: View {
 
 	func listItem(_ episode: Episode) -> some View {
 		HStack {
-			listItemImage(episode)
-				.frame(maxWidth: 50, maxHeight: 50)
 			VStack {
 				Text(episode.titleWithNumber)
 					.font(.headline)
+				// TODO: figure out how to report progress on a @Model
+				if episode.progress > 0 {
+					Text("\(episode.progress)% downloaded")
+				}
 			}
 		}
 	}
@@ -159,6 +163,13 @@ extension EpisodesView {
 	enum Filter: CaseIterable {
 		case newestToOldest
 		case oldestToNewest
+
+		var title: String {
+			switch self {
+			case .newestToOldest: return "Newest First"
+			case .oldestToNewest: return "Oldest First"
+			}
+		}
 	}
 
 	var filteredEpisodes: [Episode] {
@@ -174,7 +185,7 @@ extension EpisodesView {
 				filter = .newestToOldest
 			} label: {
 				HStack {
-					Text("Newest First")
+					Text(filter.title)
 					if filter == .newestToOldest {
 						Image(systemName: "checkmark")
 					}
@@ -185,7 +196,7 @@ extension EpisodesView {
 				filter = .oldestToNewest
 			} label: {
 				HStack {
-					Text("Oldest First")
+					Text(filter.title)
 					if filter == .oldestToNewest {
 						Image(systemName: "checkmark")
 					}
