@@ -9,26 +9,88 @@ import SwiftUI
 import SwiftData
 import CachedAsyncImage
 
+struct EmptyPodcastsView: View {
+	@Environment(\.modelContext) private var modelContext
+	@State var podcast: Podcast?
+	private let recommendedPodcastURL = URL(string: "https://audioboom.com/channels/2399216.rss")!
+
+	var body: some View {
+		VStack {
+			Text("No Podcasts")
+				.font(.largeTitle)
+				.foregroundStyle(.tertiary)
+		
+			Text("Add one with the plus button!")
+				.font(.footnote)
+				.foregroundStyle(.tertiary)
+				.padding(.bottom, 50)
+
+			if let podcast {
+				Button {
+					Task {
+						modelContext.insert(podcast)
+					}
+				} label: {
+					CachedAsyncImage(
+						url: podcast.imageURL,
+						content: { image in
+							image
+								.resizable()
+								.aspectRatio(contentMode: .fit)
+								.frame(maxWidth: 100, maxHeight: 100)
+								.cornerRadius(25)
+						},
+						placeholder: {
+							ZStack {
+								ProgressView()
+									.aspectRatio(contentMode: .fit)
+									.frame(maxWidth: 100, maxHeight: 100)
+							}
+						}
+					)
+				}
+				Text("How about this one?")
+					.foregroundStyle(.tertiary)
+			}
+		}
+		.task {
+			self.podcast =  try? await Podcast.from(url: recommendedPodcastURL)
+		}
+	}
+}
+
 struct PodcastsView: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query private var podcasts: [Podcast] = []
 	@State private var showingAlert = false
 
+	var podcastsList: some View {
+		List {
+			ForEach(podcasts) { podcast in
+				NavigationLink {
+					EpisodesView(podcast: podcast)
+				} label: {
+					RowView(podcast: podcast)
+				}
+			}
+			.onDelete(perform: deletePodcasts)
+		}
+	}
+
 	var body: some View {
 		NavigationSplitView {
-			List {
-				ForEach(podcasts) { podcast in
-					NavigationLink {
-						EpisodesView(podcast: podcast)
-					} label: {
-						RowView(podcast: podcast)
-					}
+			Group {
+				if podcasts.isEmpty {
+					EmptyPodcastsView()
+				} else {
+					podcastsList
 				}
-				.onDelete(perform: deletePodcasts)
 			}
 			.toolbar {
-				ToolbarItem(placement: .navigationBarTrailing) {
-					EditButton()
+				if !podcasts.isEmpty {
+					ToolbarItem(placement: .navigationBarTrailing) {
+						EditButton()
+					}
 				}
 				ToolbarItem {
 					AddPodcastButton()
@@ -118,7 +180,6 @@ struct AddPodcastButton: View {
 		Task {
 			do {
 				modelContext.insert(try await Podcast.from(url: podcastURL))
-//				modelContext.insert(try await Podcast.from(url: URL(string: "https://audioboom.com/channels/2399216.rss")!))
 			} catch {
 				print("addPodcast - PodcastChannel init error: \(error)")
 			}

@@ -74,8 +74,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "480">
+                  endingLineNumber = "72">
                </Location>
                <Location
                   uuid = "054E055B-5273-42DE-8404-9DA06DB49AC7 - 637933994d7da6c5"
@@ -89,8 +88,7 @@
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "472">
+                  endingLineNumber = "72">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -121,6 +119,22 @@
             breakpointStackSelectionBehavior = "1"
             scope = "1"
             stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63787307-9167-45F5-BD7F-23CCEB6FF768"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Night Pod/Player/PlayerManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "play(episode:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

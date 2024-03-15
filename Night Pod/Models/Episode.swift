@@ -56,6 +56,20 @@ final class Episode {
 	}
 
 	@Transient
+	var episodeImageURL: URL? {
+		mediaContents.first(where: { $0.type == .image })?.url
+	}
+
+	@Transient
+	var titleWithNumber: String {
+		if episodeNumber != 0 {
+			return "\(episodeNumber): \(title)"
+		}
+
+		return title
+	}
+
+	@Transient
 	var progress: Int = 0
 
 	var downloaded: Bool {

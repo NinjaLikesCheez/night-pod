@@ -21,6 +21,7 @@
 		CE8F2D7A2AC8B9A80069190E /* Night_PodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */; };
 		CE8F2D7C2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */; };
 		CEA004542ACC9289007893FE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA004532ACC9289007893FE /* Player.swift */; };
+		CECA9D0B2BA44944007D6052 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA9D0A2BA44944007D6052 /* Extensions.swift */; };
 		CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */; };
 		CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */; };
 		CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */; };
@@ -66,6 +67,7 @@
 		CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITests.swift; sourceTree = "<group>"; };
 		CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEA004532ACC9289007893FE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CECA9D0A2BA44944007D6052 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewHeader.swift; sourceTree = "<group>"; };
 		CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		CE8F2D5A2AC8B9A70069190E /* Night Pod */ = {
 			isa = PBXGroup;
 			children = (
+				CECA9D0E2BA45929007D6052 /* Episodes */,
 				CED12C9A2AE1B72E00AD9B80 /* UI */,
 				CEE9D9402AD01DAF0029748C /* Night-Pod-Info.plist */,
 				CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */,
@@ -156,7 +159,7 @@
 				CE8F2D632AC8B9A80069190E /* Night_Pod.entitlements */,
 				CE8F2D642AC8B9A80069190E /* Preview Content */,
 				CE72C9E82ACB0E5000AA0CF6 /* DownloadManager.swift */,
-				CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */,
+				CECA9D0A2BA44944007D6052 /* Extensions.swift */,
 			);
 			path = "Night Pod";
 			sourceTree = "<group>";
@@ -193,6 +196,14 @@
 				CEE9D9412AD02D6E0029748C /* PlayerManager.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		CECA9D0E2BA45929007D6052 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */,
+			);
+			path = Episodes;
 			sourceTree = "<group>";
 		};
 		CED12C9A2AE1B72E00AD9B80 /* UI */ = {
@@ -375,6 +386,7 @@
 				CED12CAA2AE1C6CE00AD9B80 /* CoverHeaderView.swift in Sources */,
 				CE72C9E72ACB099C00AA0CF6 /* Episode.swift in Sources */,
 				CEE9D9422AD02D6E0029748C /* PlayerManager.swift in Sources */,
+				CECA9D0B2BA44944007D6052 /* Extensions.swift in Sources */,
 				CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */,
 				CED12CA52AE1BD8700AD9B80 /* ScrollViewWithOffset.swift in Sources */,
 				CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */,

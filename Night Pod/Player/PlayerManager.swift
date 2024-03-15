@@ -48,10 +48,17 @@ class PlayerManager: NSObject {
 	}
 
 	func play(episode: Episode) throws {
-		// TODO: Stream or download here
-		guard let location = episode.fileURL else { return }
-		player.insert(.init(url: location), after: nil)
-		try play()
+		if let location = episode.fileURL {
+			player.insert(.init(url: location), after: nil)
+			try play()
+		} else {
+			// Download the item
+			// TODO: add a streaming option for large files?	
+			Task {
+				try await downloadManager.scheduleDownload(episode)
+				return try play(episode: episode)
+			}
+		}
 	}
 
 	func play() throws {

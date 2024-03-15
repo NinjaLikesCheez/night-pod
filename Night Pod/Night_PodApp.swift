@@ -15,10 +15,14 @@ struct Night_PodApp: App {
 			Podcast.self,
 			Episode.self
 		])
-		let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 		
 		do {
-			return try ModelContainer(for: schema, configurations: [modelConfiguration])
+			return try ModelContainer(
+				for: schema,
+				configurations: [
+					.init(schema: schema, isStoredInMemoryOnly: false)
+				]
+			)
 		} catch {
 			fatalError("Could not create ModelContainer: \(error)")
 		}
@@ -35,9 +39,9 @@ struct Night_PodApp: App {
 		WindowGroup {
 			VStack {
 				PodcastsView()
-//				if playerManager.state == .playing {
+				if playerManager.state == .playing {
 					Player()
-//				}
+				}
 			}
 		}
 		.environment(playerManager)

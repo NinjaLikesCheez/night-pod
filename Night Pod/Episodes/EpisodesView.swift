@@ -9,6 +9,7 @@ import SwiftUI
 import CachedAsyncImage
 
 struct EpisodesView: View {
+	@Environment(PlayerManager.self) var player
 	let podcast: Podcast
 
 	@State private var filter: Filter = .newestToOldest
@@ -115,24 +116,47 @@ struct EpisodesView: View {
 		LazyVStack(alignment: .leading, spacing: 30) {
 			ForEach(filteredEpisodes) { episode in
 				listItem(episode)
+					.onTapGesture {
+						// TODO: handler error
+						try? player.play(episode: episode)
+					}
 			}
 		}
 	}
 
 	func listItem(_ episode: Episode) -> some View {
-		VStack(alignment: .leading) {
-			Text(episode.title)
-				.font(.headline)
-			Text(episode.episodeDescription)
-				.font(.footnote)
-				.foregroundColor(.secondary)
+		HStack {
+			listItemImage(episode)
+				.frame(maxWidth: 50, maxHeight: 50)
+			VStack {
+				Text(episode.titleWithNumber)
+					.font(.headline)
+			}
 		}
+	}
+
+	func listItemImage(_ episode: Episode) -> some View {
+		CachedAsyncImage(
+			url: episode.episodeImageURL,
+			content: { image in
+				image
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+			},
+			placeholder: {
+				ZStack {
+					ProgressView()
+						.aspectRatio(contentMode: .fit)
+				}
+			}
+		)
+		.cornerRadius(5)
 	}
 }
 
 // MARK: - Filter behaviour
 extension EpisodesView {
-	enum Filter {
+	enum Filter: CaseIterable {
 		case newestToOldest
 		case oldestToNewest
 	}
