@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+import Kingfisher
 
 struct CoverHeaderView: View {
 	let podcast: Podcast
@@ -38,27 +38,16 @@ struct CoverHeaderView: View {
 	}
 
 	var cover: some View {
-		CachedAsyncImage(
-			url: podcast.imageURL,
-			content: { image in
-				image
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-			},
-			placeholder: {
-				ZStack {
-					ProgressView()
-						.aspectRatio(contentMode: .fit)
-				}
-			}
-		)
-		.aspectRatio(1, contentMode: .fit)
-		.cornerRadius(5)
-		.shadow(radius: 10)
-		.rotation3DEffect(.degrees(rotationDegrees), axis: (x: 1, y: 0, z: 0))
-		.offset(y: verticalOffset)
-		.padding(.top, 60)
-		.padding(.bottom, 20)
-		.padding(.horizontal, 20)
+		KFImage(podcast.imageURL)
+			.placeholder({ ImagePlaceholderView() })
+			.resizable()
+			.aspectRatio(contentMode: .fit)
+			.cornerRadius(5)
+			.shadow(radius: 10)
+			.rotation3DEffect(.degrees(rotationDegrees), axis: (x: 1, y: 0, z: 0))
+			.offset(y: verticalOffset)
+			.padding(.top, 60)
+			.padding(.bottom, 20)
+			.padding(.horizontal, 20)
 	}
 }

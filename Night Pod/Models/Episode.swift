@@ -77,6 +77,10 @@ final class Episode {
 		return FileManager.default.fileExists(atPath: URL.documentsDirectory.appending(path: path).path)
 	}
 
+	var audioURL: URL? {
+		mediaContents.first(where: { $0.type == .audio })?.url
+	}
+
 	init(_ item: RSSFeedItem) {
 		title = item.iTunes?.iTunesTitle ?? item.title ?? "No Title Provided"
 		if let urlString = item.link, let url = URL(string: urlString) {

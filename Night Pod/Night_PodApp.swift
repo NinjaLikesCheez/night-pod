@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Kingfisher
 
 @main
 struct Night_PodApp: App {
@@ -30,13 +31,17 @@ struct Night_PodApp: App {
 
 	var playerManager = PlayerManager(downloadManager: DownloadManager())
 
+	init() {
+		KingfisherManager.shared.defaultOptions = [.backgroundDecode]
+	}
+
 	var body: some Scene {
 		WindowGroup {
 			VStack {
 				PodcastsView()
-//				if playerManager.state == .playing {
+				if playerManager.isActive {
 					Player()
-//				}
+				}
 			}
 		}
 		.environment(playerManager)

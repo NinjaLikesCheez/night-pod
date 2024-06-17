@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CachedAsyncImage
+import Kingfisher
 
 struct EpisodesView: View {
 	@Environment(PlayerManager.self) var player
@@ -14,12 +14,17 @@ struct EpisodesView: View {
 
 	@State private var filter: Filter = .newestToOldest
 	@State private var isShowingFilters = false
+	@State private var isShowingAlert = false
+	@State private var alertMessage = ""
 
 	var body: some View {
 		NavigationStack {
 			ScrollView {
 				header
 				content
+			}
+			.alert(isPresented: $isShowingAlert) {
+				Alert(title: Text("Error!"), message: Text(alertMessage))
 			}
 		}
 	}
@@ -33,25 +38,14 @@ struct EpisodesView: View {
 					endPoint: .bottom
 				)
 
-				CachedAsyncImage(
-					url: podcast.imageURL,
-					content: { image in
-						image
-							.resizable()
-							.aspectRatio(contentMode: .fit)
-					},
-					placeholder: {
-						ZStack {
-							ProgressView()
-								.aspectRatio(contentMode: .fit)
-						}
-					}
-				)
-				.aspectRatio(1, contentMode: .fit)
-				.cornerRadius(5)
-				.shadow(radius: 10)
-				.padding(.top, 60)
-				.padding(.horizontal, 20)
+				KFImage(podcast.imageURL)
+					.placeholder({ ImagePlaceholderView() })
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+					.cornerRadius(5)
+					.shadow(radius: 10)
+					.padding(.top, 60)
+					.padding(.horizontal, 20)
 			}
 		}
 		.frame(height: 280)
@@ -95,12 +89,20 @@ struct EpisodesView: View {
 			filterButton
 			Image(systemName: "ellipsis")
 			Spacer()
-			Image(systemName: "shuffle")
+			shuffleButton
 			Image(systemName: "play.circle.fill")
 				.font(.largeTitle)
 				.foregroundColor(.green)
 		}
 		.font(.title3)
+	}
+
+	var shuffleButton: some View {
+		Button {
+			shuffleButtonPressed()
+		} label: {
+			Image(systemName: "shuffle")
+		}
 	}
 
 	var favouriteButton: some View {
@@ -118,20 +120,33 @@ struct EpisodesView: View {
 				listItem(episode)
 					.onTapGesture {
 						// TODO: handler error
-						Task {
-							try await player.play(episode)
+						do {
+							try player.play(episode)
+						} catch {
+							isShowingAlert = true
+							alertMessage = "Play error: \(error.localizedDescription)"
 						}
 					}
 			}
 		}
 	}
 
+	func listItemSubtitle(_ episode: Episode) -> String {
+		// TODO: add downloading and progress...
+		"\(episode.publishedDate.shortDateString()) \(episode.downloaded ? "· Downloaded" : "")"
+	}
+
 	func listItem(_ episode: Episode) -> some View {
 		HStack {
-			VStack {
+			listItemImage(episode)
+
+			VStack(alignment: .leading) {
 				Text(episode.titleWithNumber)
 					.font(.headline)
 				// TODO: figure out how to report progress on a @Model
+				Text(listItemSubtitle(episode))
+					.font(.footnote)
+					.foregroundStyle(.tertiary)
 				if episode.progress > 0 {
 					Text("\(episode.progress)% downloaded")
 				}
@@ -140,21 +155,14 @@ struct EpisodesView: View {
 	}
 
 	func listItemImage(_ episode: Episode) -> some View {
-		CachedAsyncImage(
-			url: episode.episodeImageURL,
-			content: { image in
-				image
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-			},
-			placeholder: {
-				ZStack {
-					ProgressView()
-						.aspectRatio(contentMode: .fit)
-				}
-			}
-		)
-		.cornerRadius(5)
+		KFImage(episode.episodeImageURL)
+			.placeholder({ ImagePlaceholderView() })
+			.cancelOnDisappear(true)
+			.downsampling(size: CGSize(width: 100, height: 100))
+			.resizable()
+			.aspectRatio(contentMode: .fit)
+			.cornerRadius(5)
+			.frame(width: 50, height: 50)
 	}
 }
 
@@ -208,3 +216,23 @@ extension EpisodesView {
 		.foregroundStyle(.primary)
 	}
 }
+
+// MARK: Shuffle Button Behaviour
+extension EpisodesView {
+	func shuffleButtonPressed() {
+		// TODO: add other shufflers here and get which to use from a config class you've yet to make.
+//		let shuffler = RandomShuffle(items: podcast.episodes)
+		let shuffler = MillerShuffle(items: podcast.episodes)
+
+		do {
+			try player.enqueue(episodes: shuffler.shuffle())
+			try player.play()
+		} catch {
+			// TODO: handle errors better
+			isShowingAlert = true
+			alertMessage = "Enque error: \(error.localizedDescription)"
+		}
+	}
+}
+
+// MARK: Download Button Behaviour

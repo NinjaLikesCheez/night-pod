@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		CE2D74512BA4605600C82A0C /* With.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D74502BA4605600C82A0C /* With.swift */; };
 		CE2D74532BA48A8C00C82A0C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D74522BA48A8C00C82A0C /* CGFloat+Extensions.swift */; };
+		CE2D74562BA495AF00C82A0C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE2D74552BA495AF00C82A0C /* Kingfisher */; };
+		CE2D74582BA4974000C82A0C /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D74572BA4974000C82A0C /* ImagePlaceholderView.swift */; };
+		CE2D745A2BA49FED00C82A0C /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D74592BA49FED00C82A0C /* Date+Extensions.swift */; };
 		CE6EED922AC8C9AA00BFA6EC /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */; };
-		CE72C9DE2ACAC29200AA0CF6 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */; };
 		CE72C9E12ACAC89B00AA0CF6 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE72C9E02ACAC89B00AA0CF6 /* FeedKit */; };
 		CE72C9E72ACB099C00AA0CF6 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72C9E62ACB099C00AA0CF6 /* Episode.swift */; };
 		CE72C9E92ACB0E5000AA0CF6 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72C9E82ACB0E5000AA0CF6 /* DownloadManager.swift */; };
@@ -22,6 +24,8 @@
 		CE8F2D7A2AC8B9A80069190E /* Night_PodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */; };
 		CE8F2D7C2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */; };
 		CEA004542ACC9289007893FE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA004532ACC9289007893FE /* Player.swift */; };
+		CEB6F25D2BBC26900030BDEB /* RandomShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6F25C2BBC26900030BDEB /* RandomShuffle.swift */; };
+		CEB6F25F2BBC26EA0030BDEB /* MillerShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6F25E2BBC26EA0030BDEB /* MillerShuffle.swift */; };
 		CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */; };
 		CED12C9E2AE1B7F500AD9B80 /* ScrollViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */; };
 		CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */; };
@@ -53,6 +57,8 @@
 /* Begin PBXFileReference section */
 		CE2D74502BA4605600C82A0C /* With.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = With.swift; sourceTree = "<group>"; };
 		CE2D74522BA48A8C00C82A0C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		CE2D74572BA4974000C82A0C /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
+		CE2D74592BA49FED00C82A0C /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		CE6EED912AC8C9AA00BFA6EC /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		CE72C9E62ACB099C00AA0CF6 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CE72C9E82ACB0E5000AA0CF6 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 		CE8F2D792AC8B9A80069190E /* Night_PodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITests.swift; sourceTree = "<group>"; };
 		CE8F2D7B2AC8B9A80069190E /* Night_PodUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Night_PodUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CEA004532ACC9289007893FE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CEB6F25C2BBC26900030BDEB /* RandomShuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomShuffle.swift; sourceTree = "<group>"; };
+		CEB6F25E2BBC26EA0030BDEB /* MillerShuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerShuffle.swift; sourceTree = "<group>"; };
 		CED12C9B2AE1B78C00AD9B80 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		CED12C9D2AE1B7F500AD9B80 /* ScrollViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewHeader.swift; sourceTree = "<group>"; };
 		CED12C9F2AE1B8A100AD9B80 /* EpisodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesView.swift; sourceTree = "<group>"; };
@@ -84,8 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2D74562BA495AF00C82A0C /* Kingfisher in Frameworks */,
 				CE72C9E12ACAC89B00AA0CF6 /* FeedKit in Frameworks */,
-				CE72C9DE2ACAC29200AA0CF6 /* CachedAsyncImage in Frameworks */,
 				CEF46DFF2ACA006200EB1537 /* XMLCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +120,7 @@
 			children = (
 				CE2D74502BA4605600C82A0C /* With.swift */,
 				CE2D74522BA48A8C00C82A0C /* CGFloat+Extensions.swift */,
+				CE2D74592BA49FED00C82A0C /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 		CE8F2D5A2AC8B9A70069190E /* Night Pod */ = {
 			isa = PBXGroup;
 			children = (
+				CEB6F25B2BBC26830030BDEB /* Shuffle */,
 				CE8F2D5B2AC8B9A70069190E /* Night_PodApp.swift */,
 				CE2D744F2BA4604F00C82A0C /* Extensions */,
 				CECA9D0E2BA45929007D6052 /* Episodes */,
@@ -198,6 +208,15 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		CEB6F25B2BBC26830030BDEB /* Shuffle */ = {
+			isa = PBXGroup;
+			children = (
+				CEB6F25C2BBC26900030BDEB /* RandomShuffle.swift */,
+				CEB6F25E2BBC26EA0030BDEB /* MillerShuffle.swift */,
+			);
+			path = Shuffle;
+			sourceTree = "<group>";
+		};
 		CECA9D0E2BA45929007D6052 /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +230,7 @@
 			children = (
 				CED12CA82AE1C6C000AD9B80 /* CoverHeaderView */,
 				CED12CA32AE1BD5800AD9B80 /* ScrollView */,
+				CE2D74572BA4974000C82A0C /* ImagePlaceholderView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -253,8 +273,8 @@
 			name = "Night Pod";
 			packageProductDependencies = (
 				CEF46DFE2ACA006200EB1537 /* XMLCoder */,
-				CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */,
 				CE72C9E02ACAC89B00AA0CF6 /* FeedKit */,
+				CE2D74552BA495AF00C82A0C /* Kingfisher */,
 			);
 			productName = "Night Pod";
 			productReference = CE8F2D582AC8B9A70069190E /* Night Pod.app */;
@@ -330,8 +350,8 @@
 			mainGroup = CE8F2D4F2AC8B9A70069190E;
 			packageReferences = (
 				CEF46DFD2ACA006200EB1537 /* XCRemoteSwiftPackageReference "XMLCoder" */,
-				CE72C9DC2ACAC29200AA0CF6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				CE72C9DF2ACAC89B00AA0CF6 /* XCLocalSwiftPackageReference "../FeedKit" */,
+				CE2D74542BA495AF00C82A0C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CE8F2D592AC8B9A70069190E /* Products */;
 			projectDirPath = "";
@@ -380,11 +400,15 @@
 				CED12CA22AE1BC4F00AD9B80 /* ScrollViewOffsetTracker.swift in Sources */,
 				CEA004542ACC9289007893FE /* Player.swift in Sources */,
 				CE72C9E92ACB0E5000AA0CF6 /* DownloadManager.swift in Sources */,
+				CEB6F25F2BBC26EA0030BDEB /* MillerShuffle.swift in Sources */,
 				CED12CA72AE1BEDE00AD9B80 /* ScrollViewWithStickyHeader.swift in Sources */,
 				CED12CA02AE1B8A100AD9B80 /* EpisodesView.swift in Sources */,
+				CE2D74582BA4974000C82A0C /* ImagePlaceholderView.swift in Sources */,
+				CEB6F25D2BBC26900030BDEB /* RandomShuffle.swift in Sources */,
 				CE8F2D5E2AC8B9A70069190E /* PodcastsView.swift in Sources */,
 				CED12CAA2AE1C6CE00AD9B80 /* CoverHeaderView.swift in Sources */,
 				CE72C9E72ACB099C00AA0CF6 /* Episode.swift in Sources */,
+				CE2D745A2BA49FED00C82A0C /* Date+Extensions.swift in Sources */,
 				CEE9D9422AD02D6E0029748C /* PlayerManager.swift in Sources */,
 				CED12C9C2AE1B78C00AD9B80 /* View+Extension.swift in Sources */,
 				CED12CA52AE1BD8700AD9B80 /* ScrollViewWithOffset.swift in Sources */,
@@ -764,12 +788,12 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CE72C9DC2ACAC29200AA0CF6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+		CE2D74542BA495AF00C82A0C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
+				minimumVersion = 7.11.0;
 			};
 		};
 		CEF46DFD2ACA006200EB1537 /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
@@ -783,10 +807,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE72C9DD2ACAC29200AA0CF6 /* CachedAsyncImage */ = {
+		CE2D74552BA495AF00C82A0C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE72C9DC2ACAC29200AA0CF6 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
+			package = CE2D74542BA495AF00C82A0C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		CE72C9E02ACAC89B00AA0CF6 /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;

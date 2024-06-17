@@ -17,7 +17,7 @@ class PlayerManager: NSObject {
 	private let player = AVQueuePlayer(items: [])
 	private let downloadManager: DownloadManager
 
-	var state: State = .paused
+	var state: State = .stopped
 
 	init(downloadManager: DownloadManager) {
 		self.downloadManager = downloadManager
@@ -29,18 +29,39 @@ class PlayerManager: NSObject {
 			try pause()
 		case .paused:
 			try play()
+		case .stopped:
+			break
 		}
 	}
 
-	func play(_ episode: Episode) async throws {
-		if !episode.downloaded {
-			try await downloadManager.scheduleDownload(episode)
+	var isPlaying: Bool {
+		switch state {
+		case .playing:
+			true
+		case .paused:
+			false
+		case .stopped:
+			false
+		}
+	}
+
+	var isActive: Bool {
+		state != .stopped
+	}
+
+	func play(_ episode: Episode) throws {
+		// Stream if
+		let url: URL
+		if let location = episode.fileURL {
+			url = location
+		} else if let audioURL = episode.audioURL {
+			url = audioURL
+		} else {
+			throw Error.noAudioURL
 		}
 
-		guard let fileURL = episode.fileURL else { throw Error.notDownloaded }
-
 		try pause()
-		let newItem = AVPlayerItem(url: fileURL)
+		let newItem = AVPlayerItem(url: url)
 		if let item = player.items().first {
 			player.insert(newItem, after: item)
 			player.remove(item)
@@ -48,6 +69,7 @@ class PlayerManager: NSObject {
 		} else {
 			player.insert(newItem, after: nil)
 		}
+
 		try play()
 	}
 
@@ -73,18 +95,22 @@ class PlayerManager: NSObject {
 		}
 	}
 
-	func enqueue(_ episode: Episode) async throws {
-		// TODO: enable streaming from file here
-		if !episode.downloaded {
-			try await downloadManager.scheduleDownload(episode)
-		}
-
+	func enqueue(episode: Episode) throws {
+		// Stream if not already downloaded
 		guard let location = episode.fileLocation else {
-			print("episode didn't have a file location, can't enqueue...")
-			throw Error.notDownloaded
+			guard let audioURL = episode.audioURL else {
+				throw Error.noAudioURL
+			}
+
+			player.insert(.init(url: audioURL), after: nil)
+			return
 		}
 
 		player.insert(.init(url: URL.documentsDirectory.appending(path: location)), after: nil)
+	}
+
+	func enqueue(episodes: [Episode]) throws {
+		try episodes.forEach { try enqueue(episode: $0) }
 	}
 }
 
@@ -92,9 +118,11 @@ extension PlayerManager {
 	enum State {
 		case playing
 		case paused
+		case stopped
 	}
 
 	enum Error: Swift.Error{
 		case notDownloaded
+		case noAudioURL
 	}
 }

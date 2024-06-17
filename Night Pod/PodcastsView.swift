@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwiftData
-import CachedAsyncImage
+import Kingfisher
 
 struct EmptyPodcastsView: View {
 	@Environment(\.modelContext) private var modelContext
@@ -31,23 +31,12 @@ struct EmptyPodcastsView: View {
 						modelContext.insert(podcast)
 					}
 				} label: {
-					CachedAsyncImage(
-						url: podcast.imageURL,
-						content: { image in
-							image
-								.resizable()
-								.aspectRatio(contentMode: .fit)
-								.frame(maxWidth: 100, maxHeight: 100)
-								.cornerRadius(25)
-						},
-						placeholder: {
-							ZStack {
-								ProgressView()
-									.aspectRatio(contentMode: .fit)
-									.frame(maxWidth: 100, maxHeight: 100)
-							}
-						}
-					)
+					KFImage(podcast.imageURL)
+						.placeholder({ ImagePlaceholderView() })
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+						.frame(maxWidth: 100, maxHeight: 100)
+						.cornerRadius(5)
 				}
 				Text("How about this one?")
 					.foregroundStyle(.tertiary)
@@ -119,23 +108,14 @@ struct RowView: View {
 
 	var body: some View {
 		HStack {
-			CachedAsyncImage(
-				url: podcast.imageURL,
-				content: { image in
-					image
-						.resizable()
-						.aspectRatio(contentMode: .fit)
-						.frame(maxWidth: 100, maxHeight: 100)
-						.cornerRadius(25)
-				},
-				placeholder: {
-					ZStack {
-						ProgressView()
-							.aspectRatio(contentMode: .fit)
-							.frame(maxWidth: 100, maxHeight: 100)
-					}
-				}
-			)
+			KFImage(podcast.imageURL)
+				.placeholder({ ImagePlaceholderView() })
+				.cancelOnDisappear(true)
+				.downsampling(size: CGSize(width: 200, height: 200))
+				.resizable()
+				.aspectRatio(contentMode: .fit)
+				.frame(maxWidth: 100, maxHeight: 100)
+				.cornerRadius(5)
 
 			Text(podcast.title)
 				.bold()

@@ -93,9 +93,10 @@ class DownloadManager: NSObject {
 			return
 		}
 
-		guard let url = episode.mediaContents.first(where: { $0.type == .audio })?.url else {
+		guard let url = episode.audioURL else {
 			return
 		}
+
 		active[url] = episode
 		defer { active[url] = nil }
 

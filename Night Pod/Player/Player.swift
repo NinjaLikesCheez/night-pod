@@ -17,10 +17,18 @@ enum MediaButton: View {
 
 	var imageName: String {
 		switch self {
-		case .forward: return "forward.fill"
-		case .rewind: return "backward.fill"
+		// TODO: make this use the skip interval amount to determine the image (or use generic)
+		case .forward: return "goforward.15"
+		case .rewind: return "gobackward.15"
 		case .playPause(let manager):
-			return manager.state == .paused ? "play.fill" : "pause.fill"
+			return manager.isPlaying ? "pause.fill" : "play.fill"
+		}
+	}
+
+	var height: CGFloat {
+		switch self {
+		case .forward, .rewind: return 40
+		case .playPause: return 45
 		}
 	}
 
@@ -42,7 +50,7 @@ enum MediaButton: View {
 				.aspectRatio(contentMode: .fit)
 				.padding(.horizontal, 20)
 				.padding(.vertical, 10)
-				.frame(height: 40) // TODO: 45 for play pause
+				.frame(height: height) // TODO: 45 for play pause
 		}
 	}
 }
@@ -51,32 +59,32 @@ struct Player: View {
 	@Environment(PlayerManager.self) var manager
 	@State var currentEpisode: Episode?
 
-	let skipTimeInterval = 10.0
+	let skipTimeInterval = 15.0
 
-	var body: some View {
-		HStack {
-			Button {
-				// TODO: Enable Player to drag up into a sheet that has icon art etc
-			} label: {
-				Image(systemName: "chevron.up")
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.padding(.horizontal, 20)
-					.padding(.vertical, 10)
-					.frame(height: 40)
-			}
-			Spacer()
+	var mediaControls: some View {
+		Group {
 			MediaButton.rewind(manager: manager, amount: -skipTimeInterval)
 			MediaButton.playPause(manager: manager)
 			MediaButton.forward(manager: manager, amount: skipTimeInterval)
-			Spacer()
-			Button {
-				// TODO: Enable Player to drag up into a sheet that has icon art etc
-			} label: {
-//				CachedAsyncImage
-			}
 		}
-		.frame(maxWidth: .infinity, maxHeight: 60)
+	}
+
+	var mediaImage: some View {
+		Button {
+			// TODO: Enable Player to drag up into a sheet that has icon art etc
+		} label: {
+			//				CachedAsyncImage
+		}
+	}
+
+	var body: some View {
+		ZStack {
+			HStack {
+				mediaControls
+			}
+			mediaImage
+		}
+		.frame(maxWidth: .infinity, minHeight: 40, maxHeight: 60)
 	}
 }
 
